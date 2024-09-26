@@ -12,7 +12,7 @@ Después copia todo el contenido de la carpeta MQL4 a la carpeta de datos MQL4 e
 
 ## Indicadores
 
-La primera versión del extractor avanzado incluye un total de 35 indicadores diferentes. Estos indicadores son:
+La primera versión del extractor avanzado incluye un total de 33 indicadores diferentes. Estos indicadores son:
 
 - AC
 - AD
@@ -26,8 +26,6 @@ La primera versión del extractor avanzado incluye un total de 35 indicadores di
 - BWMFI
 - CCI
 - DeMarker
-- DMI-
-- DMI+
 - Donchian Channel
 - Exponential Moving Average (EMA)
 - Envelopes
