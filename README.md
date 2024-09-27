@@ -10,6 +10,8 @@ Para instalar este repositorio, ejecuta este código. Se recomienda usar una car
 
 Después copia todo el contenido de la carpeta MQL4 a la carpeta de datos MQL4 en la instalación de MetaTrader4.
 
+Al clonarlo, aparecerá también un directorio `python` que contiene el extractor avanzado. Para instalarlo, se recomienda usar un entorno virtual de Python. Además, se debe crear dentro del directorio de python un directorio llamado `payload` que es donde deben ubicarse los archivos de datos a procesar, como `ReglasMasivas.txt`.
+
 ## Indicadores
 
 La primera versión del extractor avanzado incluye un total de 33 indicadores diferentes. Estos indicadores son:
