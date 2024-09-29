@@ -1,18 +1,58 @@
 # DMRI_MT4
-Librerías, Extractor y Probador de Estrategias para MT4 usando ML
 
+Librerías, Extractor y Probador de Estrategias para MT4 usando ML
 
 ## Instalación
 
 Para instalar este repositorio, ejecuta este código. Se recomienda usar una carpeta diferente a la de la instalación de MT4, para evitar conflictos con los archivos ya existentes. También, es muy recomendable (aunque no obligatorio) utilizar una instalación limpia de MetaTrader 4.
 
-`` git clone https://github.com/jjeg1979/DMRI_MT4.git ``
+`git clone https://github.com/jjeg1979/DMRI_MT4.git`
+
+Después copia todo el contenido de la carpeta MQL4 a la carpeta de datos MQL4 en la instalación de MetaTrader4.
+
+Al clonarlo, aparecerá también un directorio `python` que contiene el extractor avanzado. Para instalarlo, se recomienda usar un entorno virtual de Python. Además, se debe crear dentro del directorio de python un directorio llamado `payload` que es donde deben ubicarse los archivos de datos a procesar, como `ReglasMasivas.txt`.
 
 Después copia todo el contenido de la carpeta MQL4 a la carpeta de datos MQL4 en la instalación de MetaTrader4.
 
 ## Indicadores
 
 La primera versión del extractor avanzado incluye un total de 33 indicadores diferentes. Estos indicadores son:
+
+-   AC
+-   AD
+-   ADX
+-   Aroon
+-   ATR
+-   Awesome
+-   Bollinger Bands
+-   BearsPower
+-   BullsPower
+-   BWMFI
+-   CCI
+-   DeMarker
+-   Donchian Channel
+-   Exponential Moving Average (EMA)
+-   Envelopes
+-   Force
+-   IBS
+-   Keltner Channel
+-   MACD
+-   MFI
+-   Market Meanness Index (MMI)
+-   Momentum
+-   OsMA
+-   RSI
+-   RVI
+-   Parablic SAR
+-   Simple Moving Average (SMA)
+-   Stochastic Oscillator
+-   SuperTrend
+-   Tenkan
+-   VROC
+-   Weighted Moving Average (WMA)
+-   Williams Percentage Range (WPR)
+
+Y el número de "características" resultantes son 264.
 
 - AC
 - AD
