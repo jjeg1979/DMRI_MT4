@@ -1,5 +1,10 @@
 from typing import Literal, Final, Dict, List, Tuple, Union
 import pandas as pd
+from rule_combination import (
+    generar_opti_comb,
+    generate_combi_file,
+    generate_mql4_rules_combination,
+)
 from rules_extractor import extract_rules, save_rules_to_file
 from load_rules_dict import load_config
 from rules_transformation import process_rule
@@ -127,3 +132,15 @@ if __name__ == "__main__":
         print("Proceso de selección de reglas válidas completado con éxito")
     else:
         print("Hubo un error en el proceso de selección de reglas")
+
+    print(
+        "================> GENERANDO ARCHIVO MQL PARA COMBINAR REGLAS <================"
+    )
+    success = generate_mql4_rules_combination(
+        input_file="payload/SelectedRules.txt",
+        output_file="payload/SelectedRules.mqh",
+        direction="UP",
+    )
+    rules_comb = generar_opti_comb(len(rules_indices))
+    generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
+    print("========================> PROCESO TERMINADO <========================")
