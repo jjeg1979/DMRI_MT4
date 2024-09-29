@@ -4,7 +4,7 @@ from rules_extractor import extract_rules, save_rules_to_file
 from load_rules_dict import load_config
 from rules_transformation import process_rule
 from generate_mql import generate_mql4_rules, save_mql4_code
-
+from rules_selection import extract_text_rule_from, find_valid_rules, select_rules
 
 RULES_DICT: Final = "rules_dict.json"
 
@@ -114,3 +114,16 @@ if __name__ == "__main__":
 
     output_file = save_mql4_code(mql4_code, "UP", "payload")
     print(f"Código MQL4 generado y guardado en {output_file}")
+
+    filtered_rules = find_valid_rules("payload/all_backtest_results.csv")
+
+    rules_indices = [extract_text_rule_from(rule) for rule in filtered_rules]
+
+    success = select_rules(
+        "payload/processed_rules.txt", "payload/SelectedRules.txt", rules_indices
+    )
+
+    if success:
+        print("Proceso de selección de reglas válidas completado con éxito")
+    else:
+        print("Hubo un error en el proceso de selección de reglas")
