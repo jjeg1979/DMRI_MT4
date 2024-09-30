@@ -43,7 +43,7 @@ def find_valid_rules(
     return backtest_names.iloc[ids_resultantes]["BT_id"].values.tolist()  # type: ignore
 
 
-def extract_text_rule_from(rule_name: str, left_text: str, right_text str) -> int:
+def extract_text_rule_from(rule_name: str, left_text: str, right_text: str) -> int:
     """
     Extrae el índice del identificador (nombre) de una regla
 
