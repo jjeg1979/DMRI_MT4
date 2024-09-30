@@ -120,27 +120,30 @@ if __name__ == "__main__":
     output_file = save_mql4_code(mql4_code, "UP", "payload")
     print(f"Código MQL4 generado y guardado en {output_file}")
 
-    filtered_rules = find_valid_rules("payload/all_backtest_results.csv")
+    try:
+        filtered_rules = find_valid_rules("payload/all_backtest_results.csv")
 
-    rules_indices = [extract_text_rule_from(rule) for rule in filtered_rules]
+        rules_indices = [extract_text_rule_from(rule) for rule in filtered_rules]
 
-    success = select_rules(
-        "payload/processed_rules.txt", "payload/SelectedRules.txt", rules_indices
-    )
+        success = select_rules(
+            "payload/processed_rules.txt", "payload/SelectedRules.txt", rules_indices
+        )
 
-    if success:
-        print("Proceso de selección de reglas válidas completado con éxito")
-    else:
-        print("Hubo un error en el proceso de selección de reglas")
+        if success:
+            print("Proceso de selección de reglas válidas completado con éxito")
+        else:
+            print("Hubo un error en el proceso de selección de reglas")
 
-    print(
-        "================> GENERANDO ARCHIVO MQL PARA COMBINAR REGLAS <================"
-    )
-    success = generate_mql4_rules_combination(
-        input_file="payload/SelectedRules.txt",
-        output_file="payload/SelectedRules.mqh",
-        direction="UP",
-    )
-    rules_comb = generar_opti_comb(len(rules_indices))
-    generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
-    print("========================> PROCESO TERMINADO <========================")
+        print(
+            "================> GENERANDO ARCHIVO MQL PARA COMBINAR REGLAS <================"
+        )
+        success = generate_mql4_rules_combination(
+            input_file="payload/SelectedRules.txt",
+            output_file="payload/SelectedRules.mqh",
+            direction="UP",
+        )
+        rules_comb = generar_opti_comb(len(rules_indices))
+        generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
+        print("========================> PROCESO TERMINADO <========================")
+    except Exception as exc:
+        print(f"Ocurrió un error inesperado {exc}")
