@@ -123,7 +123,9 @@ if __name__ == "__main__":
     try:
         filtered_rules = find_valid_rules("payload/all_backtest_results.csv")
 
-        rules_indices = [extract_text_rule_from(rule) for rule in filtered_rules]
+        rules_indices = [
+            extract_text_rule_from(rule, "_test_rule_", "") for rule in filtered_rules
+        ]
 
         success = select_rules(
             "payload/processed_rules.txt", "payload/SelectedRules.txt", rules_indices
