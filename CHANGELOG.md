@@ -29,6 +29,8 @@ Aquí se muestran los principales cambios introducidos en la versión 1.1.
 ### Fixed
 
 #- [**rules_dict.json**] Se han corregidos errores: - Indicador parabolic SAR: Se ha cambiado SAR por iSAR en la fórmula MQL4. - Se ha quitado la coma del final del archivo
+#- [**Toolbox/VAC_Backtest_Toolbox.mqh**] Corregidos errores en la creación de los nombres de los archivos cuando se testean las reglas.
+#- [**Toolbox/VAC_FO_Toolbox.mqh**] Adaptado para poder generar los nombres de los archivos de forma correcta.
 
 ## [1.0.0] - 2024-09-20
 
