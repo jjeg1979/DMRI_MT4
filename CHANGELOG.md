@@ -21,6 +21,7 @@ Aquí se muestran los principales cambios introducidos en la versión 1.1.
 #- [**Headers/**] Directorio donde se encuentran las librerías de encabezado generales del proyecto, que permiten extraer características, calcularlas y ensamblarlas.
 #- [**Toobox/**] Directorio con librerías que permiten escribir datos en archivos `.csv` con la información de los backtests, incorpora funciones para calcular las métricas correspondientes (`VAC_Metrics_Toolbox.mqh`), para el etiquetado en la extracción (`VAC_Labeling_Toolbox.mqh`) y otras utilidades necesarias para el testeo.
 #- [**TradeInfo/**] Directorio que implementa la clase `TradeInfo` y que permite almacenar datos de las operaciones del backtest y algunas métricas de utilidad.
+#- [**Rules/**] Directorio con la implementación en MQL4 de las reglas.
 
 #- [**EXTRACTOR MASTER-v.1**] Se han movido el cálculo de indicadores y las cabeceras a la carpeta `Features` dentro del directorio `MQL4`.
 
