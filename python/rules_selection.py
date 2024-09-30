@@ -43,17 +43,21 @@ def find_valid_rules(
     return backtest_names.iloc[ids_resultantes]["BT_id"].values.tolist()  # type: ignore
 
 
-def extract_text_rule_from(rule_name: str) -> int:
+def extract_text_rule_from(rule_name: str, left_text: str, right_text str) -> int:
     """
     Extrae el índice del identificador (nombre) de una regla
 
     Args:
         rule_name (str): Identificador de la regla
+        left_text (str): Texto a la izquierda del índice
+        right_text (str): Texto a la derecha del índice
 
     Returns:
         int: número índice correspondiente a "test_rule" en la optimización
     """
-    return int(rule_name.split("_test_rule_")[-1].split("_trades")[0])
+    if right_text == "":
+        return int(rule_name.split(left_text)[-1])
+    return int(rule_name.split(left_text)[-1].split(right_text)[0])
 
 
 def select_rules(input_file: str, output_file: str, rule_indices: list[int]) -> bool:
