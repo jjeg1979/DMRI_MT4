@@ -9,6 +9,18 @@ y este proyecto intenta adherirse a las directrices marcadas en [Semantic Versio
 
 Información de lo que se viene...
 
+## [1.1.1] - 2024-10-03
+
+Aquí se muestran los principales cambios introducidos en la versión 1.1.1
+
+### Added
+
+#- [**Indicators**] Indicadores personalizados de la extracción
+
+### Fixed
+
+#- [**Features/z_VAC_values_CCBBRDown**] Corregido para que los nombres de variables se correspondan con la cabecera `Features/z_VAC_header-CCBBRDown`.
+
 ## [1.1.0] - 2024-09-30
 
 Aquí se muestran los principales cambios introducidos en la versión 1.1.
