@@ -10,6 +10,7 @@ from load_rules_dict import load_config
 from rules_transformation import process_rule
 from generate_mql import generate_mql4_rules, save_mql4_code
 from rules_selection import extract_text_rule_from, find_valid_rules, select_rules
+from rules_ensemble import process_ensemble
 
 RULES_DICT: Final = "rules_dict.json"
 
@@ -147,5 +148,17 @@ if __name__ == "__main__":
         rules_comb = generar_opti_comb(len(rules_indices))
         generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
         print("========================> PROCESO TERMINADO <========================")
+
+        print("\n")
+        print("=======> ENSAMBLANDO REGLAS SELECCIONADAS <=======")
+        process_ensemble(
+            "payload/OPTIMIZED_RULES.set",
+            "payload/SelectedRules.mqh",
+            "payload/EnsembleRules.mqh",
+            "UP",
+        )
+        print(
+            "========================> ENSAMBLADO TERMINADO <========================"
+        )
     except Exception as exc:
         print(f"Ocurrió un error inesperado {exc}")
