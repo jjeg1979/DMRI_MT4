@@ -9,6 +9,19 @@ y este proyecto intenta adherirse a las directrices marcadas en [Semantic Versio
 
 Información de lo que se viene...
 
+## [1.2.0] - 2024-10-11
+
+Aquí se muestran los principales cambios introducidos en la versión 1.2.0
+
+### Added
+
+#- [**python/rules_ensemble**] Código Python para realizar un ensamblado por votación simple.
+#- [**python/monkey-test**] Código Python para testear las reglas con un enfoque de "Monkey Test".
+
+### Fixed
+
+#- [**python/rules_selection**] Corregida la lectura de archivos csv cuando no vienen separados por ",".
+
 ## [1.1.1] - 2024-10-03
 
 Aquí se muestran los principales cambios introducidos en la versión 1.1.1
