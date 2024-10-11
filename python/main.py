@@ -10,6 +10,7 @@ from load_rules_dict import load_config
 from rules_transformation import process_rule
 from generate_mql import generate_mql4_rules, save_mql4_code
 from rules_selection import extract_text_rule_from, find_valid_rules, select_rules
+from monkey_test import execute_monkey_test
 
 RULES_DICT: Final = "rules_dict.json"
 
@@ -121,7 +122,9 @@ if __name__ == "__main__":
     print(f"Código MQL4 generado y guardado en {output_file}")
 
     try:
-        filtered_rules = find_valid_rules("payload/all_backtest_results.csv")
+        filtered_rules = find_valid_rules(
+            "payload/all_backtest_results.csv", csv_separator=";"
+        )
 
         rules_indices = [
             extract_text_rule_from(rule, "_test_rule_", "") for rule in filtered_rules
@@ -147,5 +150,19 @@ if __name__ == "__main__":
         rules_comb = generar_opti_comb(len(rules_indices))
         generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
         print("========================> PROCESO TERMINADO <========================")
+
+        print("================> EJECUTANDO MONKEY TEST <================")
+        passing_strategies = execute_monkey_test(
+            1000,
+            3.5,
+            "payload/USDCAD",
+            "payload/all_backtest_results.csv",
+            "pctwin",
+            ";",
+        )
+        print(
+            f"Un total de {len(passing_strategies)} estrategias que pasaron el Monkey Test"
+        )
+        print("================> MONKEY TEST FINALIZADO <================")
     except Exception as exc:
         print(f"Ocurrió un error inesperado {exc}")
