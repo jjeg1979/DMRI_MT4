@@ -1,11 +1,15 @@
-import pandas as pd
 from typing import List
+import pandas as pd
 
 
 def find_valid_rules(
-    filename: str, pf_min: float = 1.8, num_ops_min: int = 150, pct_win_min: int = 60
+    filename: str,
+    pf_min: float = 1.8,
+    num_ops_min: int = 150,
+    pct_win_min: int = 60,
+    csv_separator: str = ",",
 ) -> List[str]:
-    df_back_results = pd.read_csv(filename)
+    df_back_results = pd.read_csv(filename, sep=csv_separator)
 
     # Crear una nueva columna 'ID' con números consecutivos
     df_back_results["ID"] = range(1, len(df_back_results) + 1)
