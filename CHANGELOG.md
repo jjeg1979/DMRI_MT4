@@ -34,6 +34,7 @@ Aquí se muestran los principales cambios introducidos en la versión 1.1.1
 
 #- [**Features/z_VAC_values_CCBBRDown**] Corregido para que los nombres de variables se correspondan con la cabecera `Features/z_VAC_header-CCBBRDown`.
 #- [Headers/VAC_Ensemembles_Header] Añadido enumeración con el tipo de Ensamblado en la cabecera.
+#- [Toolbox/VAC_Labeling_Toolbox] Solucionado error con las etiquetas (UP por DOWN y viceversa)
 
 ## [1.1.0] - 2024-09-30
 
