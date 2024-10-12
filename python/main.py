@@ -159,7 +159,7 @@ if __name__ == "__main__":
         print("================> EJECUTANDO MONKEY TEST <================")
         passing_strategies = execute_monkey_test(
             1000,
-            3.5,
+            3.0,
             "payload/USDCAD",
             "payload/all_backtest_results.csv",
             "pctwin",
