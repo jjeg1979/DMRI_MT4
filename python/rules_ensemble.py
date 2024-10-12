@@ -120,7 +120,6 @@ def generate_output(selected_rules: List[Tuple[str, str]]) -> str:
         str: Contenido del archivo de salida
     """
     header = """//+------------------------------------------------------------------+
-
 //|                                                     Ensamble.mqh |
 //|                                      Juan José Expósito González |
 //|                                          VTALGO ACADEMY (C) 2024 |
