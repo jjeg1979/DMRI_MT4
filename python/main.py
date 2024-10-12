@@ -161,7 +161,7 @@ if __name__ == "__main__":
             ";",
         )
         print(
-            f"Un total de {len(passing_strategies)} estrategias que pasaron el Monkey Test"
+            f"Un total de {len(passing_strategies)} estrategias pasaron el Monkey Test"
         )
         print("================> MONKEY TEST FINALIZADO <================")
     except Exception as exc:
