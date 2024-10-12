@@ -129,11 +129,8 @@ def generate_output(selected_rules: List[Tuple[str, str]]) -> str:
 //| IMPORTAMOS LIBRERÍAS |
 //+------------------------------------------------------------------+
 #include <Toolbox/VAC_Toolbox.mqh>
+#include <Headers/VAC_Ensembles_header.mqh>
 //+------------------------------------------------------------------+
-enum tipo_ensamble{
-   NO_ENSEMBLE=-1,
-   ENSEMBLE_VOTING=0,
-};
 
 sinput string voting_ensemble = "===================== ENSAMBLADO POR VOTO =====================";
 input tipo_ensamble ensemble  = ENSEMBLE_VOTING;
