@@ -13,6 +13,7 @@ En este archivo se recogen las tareas pendientes y las que se han completado. Se
 -   [x] Crear el monkey test con una variante aleatoria en las entradas.
 -   [x] Crear el monkey test con monos con esteroides y que han terminado la Educación Primaria :P.
 -   [x] Añadir los cambios al `CHANGELOG.md`.
+-   [] Modificar el Monkey Test para que valga también para sistemas de venta.
 
 3. [] Actualizar el programa con un archivo `cli.py`que permita lanzar por línea de comandos. Debería utilizar la librería `argparse`. Añadir los cambios al `CHANGELOG.md`.
 4. [] Crear un método para ensamblar reglas basado en un voto ponderado por el porcentaje de acierto de la estrategia.
@@ -89,3 +90,8 @@ En este archivo se recogen las tareas pendientes y las que se han completado. Se
 -   [] Se puede añadir el etiquetado según el indicador `SuperTrend`
 -   [] Se puede añadir el etiquetado por `IBS`.
 -   [] Añadir los cambios al `CHANGELOG.md`.
+
+13. [] Implementar métodos de optimización numérica para la combinación de reglas. Añadir los cambios al `CHANGELOG.md`.
+14. [] Implementar un método directo de generación de sistemas, mediante un archivo de configuración.
+    - [] Debe indicar si para cada par y dirección se quiere utilizar un enfoque `idea-driven` o `data-driven`.
+    - [] Para ello, debe implementarse un buscador de ineficiencias para apoyar el enfoque `idea-driven`.
