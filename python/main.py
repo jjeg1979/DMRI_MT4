@@ -15,11 +15,12 @@ from rules_ensemble import process_ensemble
 
 
 RULES_DICT: Final = "rules_dict.json"
+DIRECTION: Final = "UP"
 
 
 def get_all_rules(
     filename: str,
-    target: Literal["UP", "DOWN"] = "UP",
+    target: Literal["UP", "DOWN"] = DIRECTION,
     output_dir: str = "payload/",
     mostrar_reglas: bool = False,
 ) -> Dict[str, str]:
@@ -112,15 +113,17 @@ def transform_rules(
 
 
 if __name__ == "__main__":
-    dict_rules = get_all_rules("payload/ReglasMasivas.txt", "UP", mostrar_reglas=False)
+    dict_rules = get_all_rules(
+        "payload/ReglasMasivas.txt", DIRECTION, mostrar_reglas=False
+    )
     final_rules, metrics = transform_rules(
         dict_rules, "payload/reglas_extraidas_UP.txt"
     )
     mql4_code = generate_mql4_rules(
-        final_rules, "UP"
+        final_rules, DIRECTION
     )  # Asumimos que todas las reglas son para compra
 
-    output_file = save_mql4_code(mql4_code, "UP", "payload")
+    output_file = save_mql4_code(mql4_code, DIRECTION, "payload")
     print(f"Código MQL4 generado y guardado en {output_file}")
 
     try:
@@ -147,7 +150,7 @@ if __name__ == "__main__":
         success = generate_mql4_rules_combination(
             input_file="payload/SelectedRules.txt",
             output_file="payload/SelectedRules.mqh",
-            direction="UP",
+            direction=DIRECTION,
         )
         rules_comb = generar_opti_comb(len(rules_indices))
         generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
@@ -172,8 +175,8 @@ if __name__ == "__main__":
         process_ensemble(
             "payload/OPTIMIZED_RULES.set",
             "payload/SelectedRules.mqh",
-            "payload/EnsembleRules.mqh",
-            "UP",
+            f"payload/Ensemble{"Buy" if DIRECTION == "UP" else "Sell"}Rules.mqh",
+            DIRECTION,
         )
         print(
             "========================> ENSAMBLADO TERMINADO <========================"
