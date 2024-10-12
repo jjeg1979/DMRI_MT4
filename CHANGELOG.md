@@ -21,6 +21,8 @@ Aquí se muestran los principales cambios introducidos en la versión 1.2.0
 ### Fixed
 
 #- [**python/rules_selection**] Corregida la lectura de archivos csv cuando no vienen separados por ",".
+#- [**2.0 Master Tester y Extractor/Include/Toolbox/VAC_Extracciones_Toolbox.mqh**] Corregida la función `calculate_indicators`, pasando el `_shift` como parámetro.
+#- [**2.0 Master Tester y Extractor/Include/Toolbox/VAC_Ensembles_Toolbox.mqh**] Corregida la función `write_ensemble_info`, calculando el parámetro `shift_ensemble` que controla en qué vela ha de realizarse la extracción.
 
 ## [1.1.1] - 2024-10-03
 
