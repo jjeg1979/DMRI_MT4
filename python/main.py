@@ -175,7 +175,7 @@ if __name__ == "__main__":
         process_ensemble(
             "payload/OPTIMIZED_RULES.set",
             "payload/SelectedRules.mqh",
-            f"payload/Ensemble{"Buy" if DIRECTION == "UP" else "Sell"}Rules.mqh",
+            f"payload/Ensemble{'Buy' if DIRECTION == 'UP' else 'Sell'}Rules.mqh",
             DIRECTION,
         )
         print(
