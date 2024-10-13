@@ -17,12 +17,18 @@ Aquí se muestran los principales cambios introducidos en la versión 1.2.0
 
 #- [**python/rules_ensemble**] Código Python para realizar un ensamblado por votación simple.
 #- [**python/monkey-test**] Código Python para testear las reglas con un enfoque de "Monkey Test".
+#- [**Include/Headers/VAC_Ensembles_Header.mqh**] Añadido la enumeración para los tipos de ensamblado.
 
 ### Fixed
 
 #- [**python/rules_selection**] Corregida la lectura de archivos csv cuando no vienen separados por ",".
 #- [**2.0 Master Tester y Extractor/Include/Toolbox/VAC_Extracciones_Toolbox.mqh**] Corregida la función `calculate_indicators`, pasando el `_shift` como parámetro.
 #- [**2.0 Master Tester y Extractor/Include/Toolbox/VAC_Ensembles_Toolbox.mqh**] Corregida la función `write_ensemble_info`, calculando el parámetro `shift_ensemble` que controla en qué vela ha de realizarse la extracción.
+
+### Removed
+
+#- [**EnsembleRules**] Elimnada la definición de la enumeración y variables para los tipos de ensamblados.
+#- [python/rules_ensemble.py] Eliminado el código que incluía la enumeración de los tipos de ensamblados.
 
 ## [1.1.1] - 2024-10-03
 

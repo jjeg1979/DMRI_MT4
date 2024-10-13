@@ -131,9 +131,6 @@ def generate_output(selected_rules: List[Tuple[str, str]]) -> str:
 #include <Headers/VAC_Ensembles_header.mqh>
 //+------------------------------------------------------------------+
 
-sinput string voting_ensemble = "===================== ENSAMBLADO POR VOTO =====================";
-input tipo_ensamble ensemble  = ENSEMBLE_VOTING;
-input int min_votos = 0;
 """
 
     # Procesar cada regla
