@@ -22,7 +22,7 @@ if __name__ == "__main__":
     )
     final_rules, metrics = transform_rules(
         dict_rules,
-        f"payload/reglas_extraidas_{'Buy' if DIRECTION == 'UP' else 'Sell'}.txt",
+        f"payload/reglas_extraidas_{'UP' if DIRECTION == 'UP' else 'DOWN'}.txt",
     )
     mql4_code = generate_mql4_rules(
         final_rules, DIRECTION
