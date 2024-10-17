@@ -14,7 +14,8 @@ from utils import get_all_rules, transform_rules
 # DEFINICIÓN DE VARIABLES PARA EL USUARIO
 DIRECTION: Final = "UP"
 ASSET: Final = "USDCAD"
-CSV_SEPARATOR: Final = ";"
+CSV_SEPARATOR_BT_FILE: Final = ";"
+CSV_SEPARATOR_MT: Final = ","
 
 if __name__ == "__main__":
     dict_rules = get_all_rules(
@@ -33,7 +34,7 @@ if __name__ == "__main__":
 
     try:
         filtered_rules = find_valid_rules(
-            "payload/all_backtest_results.csv", csv_separator=CSV_SEPARATOR
+            "payload/all_backtest_results.csv", csv_separator=CSV_SEPARATOR_BT_FILE
         )
 
         rules_indices = [
@@ -68,7 +69,7 @@ if __name__ == "__main__":
             f"payload/{ASSET}",
             "payload/all_backtest_results.csv",
             "pctwin",
-            CSV_SEPARATOR,
+            CSV_SEPARATOR_MT,
         )
         print(
             f"Un total de {len(passing_strategies)} estrategias pasaron el Monkey Test"
