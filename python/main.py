@@ -16,25 +16,28 @@ DIRECTION: Final = "UP"
 ASSET: Final = "USDCAD"
 CSV_SEPARATOR_BT_FILE: Final = ";"
 CSV_SEPARATOR_MT: Final = ","
+PAYLOAD_DIR: Final = "payload/"
+MONKEY_TEST_MODE = "pctwin"
 
 if __name__ == "__main__":
     dict_rules = get_all_rules(
-        "payload/ReglasMasivas.txt", DIRECTION, mostrar_reglas=False
+        f"{PAYLOAD_DIR}/ReglasMasivas.txt", DIRECTION, mostrar_reglas=False
     )
     final_rules, metrics = transform_rules(
         dict_rules,
-        f"payload/reglas_extraidas_{'UP' if DIRECTION == 'UP' else 'DOWN'}.txt",
+        f"{PAYLOAD_DIR}/reglas_extraidas_{'UP' if DIRECTION == 'UP' else 'DOWN'}.txt",
     )
     mql4_code = generate_mql4_rules(
         final_rules, DIRECTION
     )  # Asumimos que todas las reglas son para compra
 
-    output_file = save_mql4_code(mql4_code, DIRECTION, "payload")
+    output_file = save_mql4_code(mql4_code, DIRECTION, PAYLOAD_DIR)
     print(f"Código MQL4 generado y guardado en {output_file}")
 
     try:
         filtered_rules = find_valid_rules(
-            "payload/all_backtest_results.csv", csv_separator=CSV_SEPARATOR_BT_FILE
+            f"{PAYLOAD_DIR}/all_backtest_results.csv",
+            csv_separator=CSV_SEPARATOR_BT_FILE,
         )
 
         rules_indices = [
@@ -42,7 +45,9 @@ if __name__ == "__main__":
         ]
 
         success = select_rules(
-            "payload/processed_rules.txt", "payload/SelectedRules.txt", rules_indices
+            f"{PAYLOAD_DIR}/processed_rules.txt",
+            f"{PAYLOAD_DIR}/SelectedRules.txt",
+            rules_indices,
         )
 
         if success:
@@ -54,21 +59,21 @@ if __name__ == "__main__":
             "================> GENERANDO ARCHIVO MQL PARA COMBINAR REGLAS <================"
         )
         success = generate_mql4_rules_combination(
-            input_file="payload/SelectedRules.txt",
-            output_file="payload/SelectedRules.mqh",
+            input_file=f"{PAYLOAD_DIR}/SelectedRules.txt",
+            output_file=f"{PAYLOAD_DIR}/SelectedRules.mqh",
             direction=DIRECTION,
         )
         rules_comb = generar_opti_comb(len(rules_indices))
-        generate_combi_file("payload/OPTI_COMBI.set", rules_comb)
+        generate_combi_file(f"{PAYLOAD_DIR}/OPTI_COMBI.set", rules_comb)
         print("========================> PROCESO TERMINADO <========================")
 
         print("================> EJECUTANDO MONKEY TEST <================")
         passing_strategies = execute_monkey_test(
             1000,
             3.0,
-            f"payload/{ASSET}",
-            "payload/all_backtest_results.csv",
-            "pctwin",
+            f"{PAYLOAD_DIR}/{ASSET}",
+            f"{PAYLOAD_DIR}/all_backtest_results.csv",
+            MONKEY_TEST_MODE,
             CSV_SEPARATOR_MT,
         )
         print(
@@ -79,9 +84,9 @@ if __name__ == "__main__":
         print("\n")
         print("=======> ENSAMBLANDO REGLAS SELECCIONADAS <=======")
         process_ensemble(
-            "payload/OPTIMIZED_RULES.set",
-            "payload/SelectedRules.mqh",
-            f"payload/Ensemble{'Buy' if DIRECTION == 'UP' else 'Sell'}Rules.mqh",
+            f"{PAYLOAD_DIR}/OPTIMIZED_RULES.set",
+            f"{PAYLOAD_DIR}/SelectedRules.mqh",
+            f"{PAYLOAD_DIR}/Ensemble{'Buy' if DIRECTION == 'UP' else 'Sell'}Rules.mqh",
             DIRECTION,
         )
         print(
