@@ -18,6 +18,8 @@ CSV_SEPARATOR_BT_FILE: Final = ";"
 CSV_SEPARATOR_MT: Final = ","
 PAYLOAD_DIR: Final = "payload/"
 MONKEY_TEST_MODE = "pctwin"
+NUM_MONKEYS: Final = 1000
+STD_DEV_MONKEYS_RET: Final = 3.0
 
 if __name__ == "__main__":
     dict_rules = get_all_rules(
@@ -69,8 +71,8 @@ if __name__ == "__main__":
 
         print("================> EJECUTANDO MONKEY TEST <================")
         passing_strategies = execute_monkey_test(
-            1000,
-            3.0,
+            NUM_MONKEYS,
+            STD_DEV_MONKEYS_RET,
             f"{PAYLOAD_DIR}/{ASSET}",
             f"{PAYLOAD_DIR}/all_backtest_results.csv",
             MONKEY_TEST_MODE,
